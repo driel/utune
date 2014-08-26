@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/select2.css">
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/admin.css">
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/checkswitch.css">
+<script src="<?php echo get_bloginfo('template_url'); ?>/admin/js/checkswitch.js"></script>
 <script src="<?php echo get_bloginfo('template_url'); ?>/admin/js/select2.min.js"></script>
 <script>
 	jQuery(function($){
@@ -43,6 +45,8 @@
 
 			media_uploader.open();
 		});
+
+		checkSwitch();
 	});
 </script>
 <div class="clear"></div>
@@ -53,7 +57,8 @@
 		<li><a href="#general" class="active">General</a></li>
 		<li><a href="#social">Social</a></li>
 		<li><a href="#header">Header</a></li>
-		<li><a href="#footer" class="last-tab">Footer</a></li>
+		<li><a href="#footer">Footer</a></li>
+		<li><a href="#analytic" class="last-tab">Analytic</a></li>
 	</ul>
 	
 	<div class="tab-content">
@@ -61,8 +66,9 @@
 			<?php require_once('options-generals.php'); ?>
 		</div>
 		<div class="tab-pane" id="social">this is social</div>
-		<div class="tab-pane" id="header">this is header</div>
+		<div class="tab-pane" id="header"><?php require_once('options-header.php'); ?></div>
 		<div class="tab-pane" id="footer">this is footer</div>
+		<div class="tab-pane" id="analytic"><?php require_once('options-analytic.php'); ?></div>
 	</div>
 	<div class="tab-footer">
 		<input type="submit" class="utune-button" value="Save">

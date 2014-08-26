@@ -12,7 +12,3 @@
 	<div class="block-title">Font</div>
 	<?php echo google_fonts(); ?>
 </div>
-<div class="block">
-	<div class="block-title">Google Analaytic</div>
-	<textarea name="utune-analytic" class="utune-input" cols="30" rows="5"></textarea>
-</div>
