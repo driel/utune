@@ -85,4 +85,9 @@ general css
 	color: #ccc;
 	cursor: pointer;
 	background: #0074A2;
+	text-decoration: none;
+}
+
+.utune-button:hover{
+	color: #ccc;
 }

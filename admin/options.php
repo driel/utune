@@ -1,5 +1,5 @@
 <?php
-require_once('options-fonts.php');
+require_once('options-functions.php');
 add_action('admin_enqueue_scripts', 'my_admin_scripts');
 
 function my_admin_scripts() {
@@ -17,3 +17,9 @@ function utune_options(){
 function utune_options_page(){
 	require_once('options-index.php');
 }
+
+
+function utune_admin_head(){
+	require_once('options-admin-head.php');
+}
+add_action('admin_head', 'utune_admin_head');
