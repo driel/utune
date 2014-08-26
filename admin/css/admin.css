@@ -1,0 +1,88 @@
+.utune-tabs{
+	list-style: none;
+	margin: 5px 0;
+}
+
+.utune-tabs:after{
+	content: '.';
+	visibility: hidden;
+	clear: both;
+	height: 0px;
+}
+
+.utune-tabs li{
+	float: left;
+}
+
+.utune-tabs li a{
+	padding: 5px 20px;
+	color: #aaa;
+	background: #333;
+	border: 1px solid #000;
+	border-right: 0;
+	text-decoration: none;
+	-webkit-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
+}
+
+.utune-tabs li a.last-tab{
+	border-right: 1px solid #000;
+}
+
+.utune-tabs li a.active,
+.utune-tabs li a:hover{
+	background: #494949;
+	-webkit-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
+}
+
+.utune-tabs li a:hover{
+	padding-top: 5px;
+}
+
+.tab-content, .tab-footer{
+	padding: 10px;
+	border: 1px solid #000;
+	background: #333;
+}
+
+.tab-footer{
+	border-top: 0;
+}
+
+.tab-content .tab-pane{
+	display: none;
+	color: #aaa;
+}
+
+.tab-content .tab-pane.active{
+	display: block;
+}
+
+.block{
+	margin-bottom: 20px;
+}
+
+.block .block-title{
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+
+/*
+general css
+*/
+.utune-input{
+	width: 350px;
+	padding: 3px!important;
+}
+
+.utune-button{
+	border: 0;
+	padding: 6px;
+	outline: none;
+	color: #ccc;
+	cursor: pointer;
+	background: #0074A2;
+}
