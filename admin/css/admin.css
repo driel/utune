@@ -78,6 +78,10 @@ general css
 	padding: 3px!important;
 }
 
+.utune-textarea{
+	font-family: monaco, consolas;
+}
+
 .utune-button{
 	border: 0;
 	padding: 6px;
