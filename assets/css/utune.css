@@ -170,4 +170,25 @@ body{
 		background: url('../images/home_icon.png') no-repeat 15px 9px;
 		text-indent: -999999px;
 	}
+
+	.utune-head ul.parent-menu>li>ul.sub-menu{
+		display: block;
+		padding: 0;
+		list-style: none;
+		background: transparent;
+		border: 0;
+	}
+
+	.utune-head ul.parent-menu>li:hover>ul.sub-menu{
+		display: block;
+	}
+
+	.utune-head ul.parent-menu>li>ul.sub-menu>li{
+		padding: 8px 15px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.utune-head ul.parent-menu>li>ul.sub-menu>li:last-child{
+		border: 0;
+	}
 }
