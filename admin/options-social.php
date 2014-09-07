@@ -14,7 +14,3 @@
 	<div class="block-title"><?php echo __('Youtube', 'utune'); ?></div>
 	<input type="text" name="utune[social_media][youtube]" class="utune-input" value="<?php echo utune_get_social_link('youtube'); ?>">
 </div>
-<div class="block">
-	<div class="block-title"><?php echo __('Path', 'utune'); ?></div>
-	<input type="text" name="utune[social_media][path]" class="utune-input" value="<?php echo utune_get_social_link('path'); ?>">
-</div>

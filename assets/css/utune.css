@@ -1,0 +1,173 @@
+/*
+
+www.uniquedesign10.com
+*/
+body{
+	margin: 0;
+}
+
+.icon-bar{
+	color: #FFF;
+	border: 1px solid #fff;
+}
+
+.utune-head{
+	background: #171717;
+	position: relative;
+	border-bottom: 5px solid #007cb9;;
+}
+
+.utune-inner-head{
+	height: 100px;
+}
+
+.utune-logo{
+	color: #eee;
+	font-size: 24px;
+	padding: 10px 0 0 0;
+}
+
+.utune-logo img{
+	max-width: 100%;
+}
+
+/*SEARCH*/
+.utune-search form{
+	position: relative;
+	width: 100%;
+}
+
+.utune-search-button,
+.utune-keyword-text{
+	background: transparent;
+	border: 0;
+	outline: none;
+	color: #eee;
+	right: 1px;
+	top: 1px;
+	padding: 0;
+}
+
+.utune-search-button{
+	width: 24px;
+	height: 32px;
+	border: 1px solid #333;
+	border-left: 0;
+	border-radius: 0 24px 24px 0;
+	background: #171717 url('../images/search2.png') -4px 2px no-repeat;
+}
+
+.utune-keyword{
+	width: 20px;
+	height: 32px;
+	border:1px solid #333;
+	border-radius: 24px 0 0 24px;
+	border-right: 0;
+	padding-left: 20px;
+}
+
+.utune-keyword-text{
+	height: 32px;
+	width: 100%;
+	border: 0;
+	background: transparent;
+}
+/*;SEARCH*/
+
+/*MENU*/
+.utune-head ul.parent-menu{
+	float: none;
+}
+
+.utune-head ul.parent-menu>li{
+	position: relative;
+}
+
+.utune-head ul.parent-menu>li>a{
+	padding: 10px 15px;
+	color: #eee;
+}
+
+.utune-head ul.parent-menu>li:hover>a{
+	background: #007cb9;
+}
+
+.utune-head ul.parent-menu>li>a.utune-home{
+	background: url('../images/home_icon.png') no-repeat 0 9px;
+	text-indent: -999999px;
+}
+
+.utune-head ul.parent-menu>li>ul.sub-menu{
+	display: none;
+	position: absolute;
+	width: 200px;
+	padding: 0;
+	list-style: none;
+	background: #eee;
+	border-top: 5px solid #007cb9;
+}
+
+.utune-head ul.parent-menu>li:hover>ul.sub-menu{
+	display: block;
+}
+
+.utune-head ul.parent-menu>li>ul.sub-menu>li{
+	padding: 8px 15px;
+	border-bottom: 1px solid #ccc;
+}
+
+.utune-head ul.parent-menu>li>ul.sub-menu>li:last-child{
+	border: 0;
+}
+
+
+/*;MENU*/
+
+/*SOCIAL MEDIA*/
+.utune-social-icons{
+	margin-top: 20px;
+}
+
+.utune-social-icon{
+	color: #aaa;
+	margin-left: 10px;
+	font-size: 18px!important;
+	/*line-height: 24px!important;
+	text-align: center;*//*
+	background: #eee;*/
+}
+
+.social-facebook:hover{
+	color: #3e5b97;
+}
+
+.social-twitter:hover{
+	color: #05b0e8;
+}
+
+.social-gplus:hover{
+	color: #e04006;
+}
+
+.social-youtube:hover{
+	color: #f00;
+}
+/*;SOCIAL MEDIA*/
+
+
+@media screen and (max-width: 768px){
+	.utune-head-widget,
+	.utune-search form{
+		display: none;
+	}
+
+	.utune-logo{
+		text-align: center;
+		padding-bottom: 0;
+	}
+
+	.utune-head ul.parent-menu>li>a.utune-home{
+		background: url('../images/home_icon.png') no-repeat 15px 9px;
+		text-indent: -999999px;
+	}
+}
