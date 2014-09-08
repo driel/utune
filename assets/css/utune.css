@@ -172,23 +172,35 @@ body{
 	}
 
 	.utune-head ul.parent-menu>li>ul.sub-menu{
+		position: static;
 		display: block;
-		padding: 0;
 		list-style: none;
 		background: transparent;
 		border: 0;
-	}
-
-	.utune-head ul.parent-menu>li:hover>ul.sub-menu{
-		display: block;
+		width: 100%;
 	}
 
 	.utune-head ul.parent-menu>li>ul.sub-menu>li{
-		padding: 8px 15px;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 0;
+		padding: 0;
 	}
 
 	.utune-head ul.parent-menu>li>ul.sub-menu>li:last-child{
 		border: 0;
+	}
+
+	.utune-head ul.parent-menu>li>ul.sub-menu>li>a{
+		display: block;
+		color: #eee;
+		width: 100%;
+		padding: 10px 15px;
+		padding: 10px 15px 10px 30px;
+	}
+
+	.utune-head ul.parent-menu>li>ul.sub-menu>li>a:hover{
+		display: block;
+		color: #eee;
+		width: 100%;
+		background: #007cb9;
 	}
 }
