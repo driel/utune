@@ -57,7 +57,7 @@ add_action('wp_enqueue_scripts', 'utune_register_script');
 if(!function_exists('utune_add_custom_link')){
 	function utune_add_custom_link($items, $args){
 		if($args->theme_location == 'primary'){
-			$home_link = '<li><a href="#" class="utune-home">Home</a></li>';
+			$home_link = '<li><a href="'.esc_url(home_url('/')).'" class="utune-home">Home</a></li>';
 			$items = substr_replace($items, $home_link, 0, 0);
 		}
 

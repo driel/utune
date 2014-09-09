@@ -39,4 +39,18 @@
 				<?php wp_nav_menu(array('theme_location'=>'primary', 'container'=>'', 'menu_class'=>'nav navbar-nav parent-menu')); ?>
 			</div>
 		</div>
+	</div><!-- /.utune-head -->
+	<?php if(is_page()): ?>
+	<div class="utune-breadcrumb">
+		<!-- <div class="utune-post-image">
+			<img src="http://www.newzealand.com/_proxy/imageproxy_1y/serve/rotorua-new-zealand.webp?height=528&outputformat=webp&quality=80&source=1127267&transformationsystem=crop&width=1536&securitytoken=D9F2C86B1C3C0BD0BC9B8C911E87BA03" alt="">
+		</div> -->
+		
+		<div class="utune-breadcrumb-inner">
+			<div class="container">
+				<h3 class="utune-page-heading"><?php echo the_title(); ?></h3>
+				<?php dimox_breadcrumbs(); ?>
+			</div>
+		</div>
 	</div>
+	<?php endif; ?>
