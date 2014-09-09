@@ -6,6 +6,10 @@ body{
 	margin: 0;
 }
 
+p{
+	margin: 15px 0;
+}
+
 .icon-bar{
 	color: #FFF;
 	border: 1px solid #fff;
@@ -268,6 +272,24 @@ body{
 .utune-trail .current{
 	color: #bbb;
 }
+/*;BREADCRUMB*/
+
+.utune-content{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.utune-main-content p{
+	text-align: justify;
+}
+
+/*FOOTER*/
+.utune-footer{
+	position: relative;
+	border-top: 5px solid #007cb9;
+	z-index: 11;
+}
+/*;FOOTER*/
 
 @media screen and (max-width: 768px){
 	.utune-inner-head {
@@ -287,7 +309,8 @@ body{
 
 	.utune-head ul.parent-menu>li>a.utune-home{
 		background: url('../images/home_icon.png') no-repeat 15px 9px;
-		text-indent: -999999px;
+		text-indent: 0;
+		padding-left: 45px;
 	}
 
 	.utune-head ul.parent-menu>li>ul.sub-menu,
@@ -338,5 +361,9 @@ body{
 	.utune-breadcrumb .utune-post-image img{
 		height: 100%;
 		width: auto;
+	}
+
+	.utune-sidebar{
+		display: none;
 	}
 }

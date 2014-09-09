@@ -37,15 +37,16 @@ add_action('after_setup_theme', 'utune_setup');
 if(!function_exists('utune_register_script')){
 	function utune_register_script(){
 		$font = utune_get_option('font');
-		wp_enqueue_style('utune-style', get_stylesheet_uri());
-		wp_enqueue_style('utune-bootstrap', get_template_directory_uri().'/assets/css/bootstrap.min.css', array('utune-style'));
-		wp_enqueue_style('utune-fa', get_template_directory_uri().'/assets/css/font-awesome.min.css', array('utune-style'));
+		wp_enqueue_style('utune-bootstrap', get_template_directory_uri().'/assets/css/bootstrap.min.css');
+		wp_enqueue_style('utune-fa', get_template_directory_uri().'/assets/css/font-awesome.min.css');
 
 		if(strlen($font) > 0){
-			wp_enqueue_style('utune-font', 'http://fonts.googleapis.com/css?family='.$font, array('utune-style'));
+			wp_enqueue_style('utune-font', 'http://fonts.googleapis.com/css?family='.$font);
 		}else{
-			wp_enqueue_style('utune-font', 'http://fonts.googleapis.com/css?family=Lato', array('utune-style'));
+			wp_enqueue_style('utune-font', 'http://fonts.googleapis.com/css?family=Lato');
 		}
+
+		wp_enqueue_style('utune-style', get_stylesheet_uri());
 
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('utune-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'));
