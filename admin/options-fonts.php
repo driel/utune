@@ -1,6 +1,8 @@
 <?php
 function google_fonts($name, $selected = ''){
 	$googlefonts = array(
+		"Arial"=>"Arial",
+		"Verdana"=>"Verdana",
 		"Arvo"=>"Arvo",
 		"Droid Sans" => "Droid+Sans",
 		"Droid Serif" => "Droid+Serif",
@@ -8,7 +10,6 @@ function google_fonts($name, $selected = ''){
 		"Lato" => "Lato",
 		"Libre Baskerville" => "Libre+Baskerville",
 		"Lobster" => "Lobster",
-		"Lobster Two" => "Lobster+Two",
 		"Lora" => "Lora",
 		"Open Sans" => "Open+Sans",
 		"Open Sans Condensed" => "Open+Sans+Condensed",
@@ -26,9 +27,9 @@ function google_fonts($name, $selected = ''){
 	$html = '<select name="'.$name.'" class="select">';
 	foreach($googlefonts as $k=>$v){
 		if($selected == $v){
-			$html .= '<option value="'.$v.'" selected>'.$k.'</option>';
+			$html .= '<option value="'.$k.'" selected>'.$k.'</option>';
 		}else{
-			$html .= '<option value="'.$v.'">'.$k.'</option>';
+			$html .= '<option value="'.$k.'">'.$k.'</option>';
 		}
 	}
 	$html .= '</select>';

@@ -1,16 +1,16 @@
 jQuery(function($){
-
-	$(document).on('click', function(e){
-		if(e.target.id == 'utune-keyword'){
-			$('.utune-keyword').animate({'width':'200px'});
+	$(window).on("scroll", function(e){
+		console.log($(this).scrollTop());
+		if($(this).scrollTop() > 90){
+			$('.utune-backto-top').fadeIn();
 		}else{
-			if(e.target.id != 'utune-search-button') $('.utune-keyword').animate({'width':'20px'});
+			$('.utune-backto-top').fadeOut();
 		}
 	});
 
-	$('.utune-search-button').on('click', function(){
-		$('.utune-keyword').animate({
-			'width': '200px'
+	$('.utune-backto-top').on('click', function(){
+		$('html, body').animate({
+			'scrollTop': '0'
 		});
 	});
 });

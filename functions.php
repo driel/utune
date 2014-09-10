@@ -2,13 +2,14 @@
 define('UTUNE_OPT_SLUG', 'theme-settings');
 define('UTUNE_ROOT_DIR', get_template_directory());
 
-require_once('include/widgets.php');
-require_once('include/shortcodes.php');
-require_once('include/fungsi.php');
-require_once('admin/options.php');
+require_once(get_template_directory().'/include/widgets.php');
+require_once(get_template_directory().'/include/shortcodes.php');
+require_once(get_template_directory().'/include/fungsi.php');
+require_once(get_template_directory().'/admin/options.php');
 // require_once('include/custom-post.php');
 
 register_nav_menu('primary', 'Primary Menu');
+register_nav_menu('secondary', 'Secondary Menu');
 
 if(!function_exists('utune_head')){
 	function utune_head(){
@@ -18,7 +19,7 @@ if(!function_exists('utune_head')){
 			?>
 			<style type="text/css">
 			body *{
-				font: 14px '<?php echo $font; ?>';
+				font: 12px '<?php echo $font; ?>';
 			}
 			</style>
 			<?php
@@ -61,15 +62,14 @@ if(!function_exists('utune_add_custom_link')){
 			$home_link = '<li><a href="'.esc_url(home_url('/')).'" class="utune-home">Home</a></li>';
 			$items = substr_replace($items, $home_link, 0, 0);
 		}
-
-		if(utune_get_option('show_search') == 'on'){
-			ob_start();
-			get_template_part('search', 'form');
-			$search_form = ob_get_clean();
-			$items .= '<li class="pull-right utune-search">'.$search_form.'</li>';
-		}
 		return $items;
 	}
 }
 add_filter('wp_nav_menu_items', 'utune_add_custom_link', 10, 2);
+
+function utune_excerpt_more( $more ){
+	global $post;
+	return ' <a href="" class="utune-more">read more...</a>';
+}
+add_filter('excerpt_more', 'utune_excerpt_more');
 

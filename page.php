@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-9 col-xs-9 utune-main-content">
-				<?php get_template_part('blog', 'loop'); ?>
+				<?php get_template_part('content', 'loop'); ?>
 			</div>
 			<div class="col-md-3 col-xs-3 utune-sidebar">
 				<?php if(is_dynamic_sidebar('Sidebar')): ?>

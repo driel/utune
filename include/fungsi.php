@@ -13,10 +13,18 @@ if(!function_exists('utune_get_option')){
 if(!function_exists('utune_get_social_link')){
 	function utune_get_social_link($social){
 		$socials = utune_get_option('social_media');
-		if(array_key_exists($social, $socials)){
-			return $socials[$social];
+		if(is_array($socials) || strlen($socials) > 0){
+			if(array_key_exists($social, $socials)){
+				return $socials[$social];
+			}
 		}
 		return '';
+	}
+}
+
+if(!function_exists('utune_split_date')){
+	function utune_split_date($date, $s = ' '){
+		return list($m, $d, $y) = explode($s, $date);
 	}
 }
 
