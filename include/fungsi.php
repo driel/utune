@@ -28,6 +28,28 @@ if(!function_exists('utune_split_date')){
 	}
 }
 
+if(!function_exists('utune_hex2rgb')){
+	function utune_hex2rgb($hex, $compact = true){
+		$hex = str_replace("#", "", $hex);
+
+		if(strlen($hex) == 3) {
+			$r = hexdec(substr($hex,0,1).substr($hex,0,1));
+			$g = hexdec(substr($hex,1,1).substr($hex,1,1));
+			$b = hexdec(substr($hex,2,1).substr($hex,2,1));
+		} else {
+			$r = hexdec(substr($hex,0,2));
+			$g = hexdec(substr($hex,2,2));
+			$b = hexdec(substr($hex,4,2));
+		}
+
+		$rgb = array($r, $g, $b);
+		if($compact){
+			return implode(', ', $rgb);
+		}
+		return $rgb;
+	}
+}
+
 /*
 CREDIT GOES TO http://dimox.net/wordpress-breadcrumbs-without-a-plugin/
 */
@@ -38,7 +60,7 @@ function dimox_breadcrumbs($prefix = 'You are here') {
 	$text['home']     = 'Home'; // text for the 'Home' link
 	$text['category'] = 'Archive by Category "%s"'; // text for a category page
 	$text['search']   = 'Search Results for "%s" Query'; // text for a search results page
-	$text['tag']      = 'Posts Tagged "%s"'; // text for a tag page
+	$text['tag']      = 'Tagged in "%s"'; // text for a tag page
 	$text['author']   = 'Articles Posted by %s'; // text for an author page
 	$text['404']      = 'Error 404'; // text for the 404 page
 
@@ -182,3 +204,39 @@ echo '</div><!-- .breadcrumbs -->';
 
 }
 } // end dimox_breadcrumbs()
+
+/*
+CREDIT GOES TO http://www.wpexplorer.com/pagination-wordpress-theme/
+*/
+if ( !function_exists( 'wpex_pagination' ) ) {
+	
+	function wpex_pagination() {
+		
+		$prev_arrow = is_rtl() ? '&rarr;' : '&larr;';
+		$next_arrow = is_rtl() ? '&larr;' : '&rarr;';
+		
+		global $wp_query;
+		$total = $wp_query->max_num_pages;
+		$big = 999999999; // need an unlikely integer
+		if( $total > 1 )  {
+			 if( !$current_page = get_query_var('paged') )
+				 $current_page = 1;
+			 if( get_option('permalink_structure') ) {
+				 $format = 'page/%#%/';
+			 } else {
+				 $format = '&paged=%#%';
+			 }
+			echo paginate_links(array(
+				'base'			=> str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format'		=> $format,
+				'current'		=> max( 1, get_query_var('paged') ),
+				'total' 		=> $total,
+				'mid_size'		=> 3,
+				'type' 			=> 'list',
+				'prev_text'		=> $prev_arrow,
+				'next_text'		=> $next_arrow,
+			 ) );
+		}
+	}
+	
+}

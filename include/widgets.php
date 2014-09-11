@@ -1,24 +1,14 @@
 <?php
 if(!function_exists('utune_widgets')){
 	function utune_widgets(){
-		// register_sidebar(array(
-		// 	'name'          => __( 'Header 1', 'utune' ),
-		// 	'id'            => 'utune_header_1',
-		// 	'description'   => 'Sidebar area in header right next to logo',
-		//     'class'         => 'utune-widget',
-		// 	'before_widget' => '<div class="utune-widget">',
-		// 	'after_widget'  => '</div>',
-		// 	'before_title'  => '<h2 class="utune-widget-tittle">',
-		// 	'after_title'   => '</h2>'
-		// ));
 
 		register_sidebar(array(
 			'name'          => __( 'Sidebar', 'utune' ),
 			'id'            => 'utune_sidebar',
 			'description'   => 'Main sidebar',
 		    'class'         => 'utune-widget',
-			'before_widget' => '',
-			'after_widget'  => '',
+			'before_widget' => '<div class="utune-widget">',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="utune-widget-tittle">',
 			'after_title'   => '</h2>'
 		));

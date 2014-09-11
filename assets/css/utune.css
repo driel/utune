@@ -11,8 +11,27 @@ p{
 	margin: 15px 0;
 }
 
+a{
+	text-decoration: none;
+	color: #007cb9;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
 .utune-pade{
 	padding-left: 10px;
+}
+
+.utune-static{
+	position: static!important;
+}
+
+.utune-strip{
+	height: 5px;
+	margin-top: 15px;
+	background: url('../images/stripe.png'); 
 }
 
 .icon-bar{
@@ -33,8 +52,13 @@ p{
 	min-height: 100px;
 }
 
+.utune-inner-head .utune-tagline{
+	color: #aaa;
+	margin-bottom: 10px;
+}
+
 .utune-logo{
-	color: #eee;
+	color: #aaa;
 	font-size: 24px;
 	padding: 10px 0 0 0;
 }
@@ -55,7 +79,7 @@ p{
 	background: transparent;
 	border: 0;
 	outline: none;
-	color: #eee;
+	color: #aaa;
 	right: 1px;
 	top: 1px;
 	padding: 0;
@@ -64,10 +88,11 @@ p{
 .utune-search-button{
 	width: 24px;
 	height: 32px;
+	color: #007cb9;
 	/*border: 1px solid #333;
 	border-left: 0;
-	border-radius: 0 24px 24px 0;*/
-	background: #171717 url('../images/search2.png') 2px 2px no-repeat;
+	border-radius: 0 24px 24px 0;
+	background: #171717 url('../images/search2.png') 2px 2px no-repeat;*/
 }
 
 .utune-keyword{
@@ -96,7 +121,7 @@ p{
 
 .utune-head ul.parent-menu>li>a{
 	padding: 10px 15px;
-	color: #eee;
+	color: #aaa!important;
 	background: transparent;
 	-webkit-transition: background .2s;
 	-moz-transition: background .2s;
@@ -118,7 +143,14 @@ p{
 .utune-head ul.parent-menu>li>a.utune-home{
 	background: url('../images/home_icon.png') no-repeat 0 9px;
 	text-indent: -999999px;
+	/*padding: 6px 15px;*/
 }
+
+/*.utune-head ul.parent-menu>li>a.utune-home:before{
+	content: "\f015";
+	font: normal normal normal 26px/1 'FontAwesome';
+	color: #bbb;
+}*/
 
 .utune-head ul.parent-menu>li ul.sub-menu{
 	display: none;
@@ -217,11 +249,11 @@ p{
 .utune-breadcrumb{
 	background: #a8bac8;
 	position: relative;
-	min-height: 100px;
-	/*padding: 20px 0;*/
+	min-height: 90px;
 }
 
 .utune-breadcrumb .utune-post-image{
+	max-height: 450px;
 	overflow: hidden;
 }
 
@@ -248,27 +280,32 @@ p{
 
 .utune-trail,
 .utune-trail a{
-	color: #eee;
+	color: #eee!important;
+	height: 20px;
+	line-height: 20px;
 }
 
 .utune-trail>span.prefix{
-	padding: 3px;
-	background: #eee;
+	padding: 0 5px;
+	background: #EEE;
 	margin-right: 15px;
 	position: relative;
 	color: #333;
+	height: 20px;
+	float: left;
+	line-height: 20px;
 }
 
 .utune-trail>span.prefix:after{
 	content: '';
-	border-top: 11px solid rgba(0, 0, 0, 0);
-	border-bottom: 11px solid rgba(0, 0, 0, 0);
-	border-left: 11px solid #EEE;
+	border-top: 10px solid rgba(0, 0, 0, 0);
+	border-bottom: 10px solid rgba(0, 0, 0, 0);
+	border-left: 10px solid #EEE;
 	position: absolute;
 	width: 0;
 	height: 0;
 	top: 0;
-	right: -11px;
+	right: -10px;
 }
 
 .utune-trail .current{
@@ -291,7 +328,7 @@ p{
 	position: relative;
 	border-top: 5px solid #007cb9;
 	z-index: 11;
-	color: #eee;
+	color: #aaa;
 	padding: 30px 0 20px 0;
 	background: #171717;
 }
@@ -300,7 +337,7 @@ p{
 	border-top: 1px solid #2C2C2C;
 	padding: 15px 0;
 	background: #1F1F1F;
-	color: #EEE;
+	color: #aaa;
 }
 
 .utune-copyright .utune-copyright-text{
@@ -324,7 +361,7 @@ p{
 }
 
 .utune-copyright ul.secondary-menu li a{
-	color: #eee;
+	color: #aaa!important;
 	font-size: 12px;
 	padding: 0 8px;
 }
@@ -335,16 +372,19 @@ p{
 	cursor: pointer;
 	bottom: 20px;
 	right: 20px;
-	background: #EEE;
-	padding: 8px 10px;
+	background: #333;
+	color: #aaa!important;
+	padding: 2px 10px;
+	padding-top: 0;
 	z-index: 13;
+	font-size: 24px;
 	-webkit-transition: background .4s;
 	-o-transition: background .4s;
 	transition: background .4s;
 }
 
 .utune-backto-top:hover{
-	background: #64C4F3;
+	background: #0079bc;
 	-webkit-transition: background .4s;
 	-o-transition: background .4s;
 	transition: background .4s;
@@ -357,42 +397,152 @@ p{
 /*;FOOTER*/
 
 /*WIDGETS*/
-.utune-head-widget h2.utune-widget-tittle,
 h2.utune-widget-tittle{
 	color: #007CB9;
 	font-size: 14px;
 	text-transform: uppercase;
+	border-bottom: 2px solid #007CB9;
+	padding-bottom: 2px;
 }
 
-.utune-widget ul{
+.utune-footer .utune-widget ul{
 	list-style: none;
 	padding: 0;
 }
 
-.utune-widget ul li{
+.utune-footer .utune-widget ul li{
 	padding: 0 0 5px 0;
 }
 
-.utune-widget ul a{
-	color: #eee;
+.utune-footer .utune-widget ul a{
+	color: #aaa;
 	font-size: 12px;
 }
 
+.utune-footer .utune-widget label,
 .utune-widget label{
 	display: block;
 }
 
-.utune-widget input{
+.utune-footer .utune-widget .tagcloud a{
+	float: left;
+	background: #eee;
+	padding: 2px 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.utune-footer .utune-widget input[type=button],
+.utune-footer .utune-widget input[type=submit],
+.utune-footer .utune-widget button,
+.utune-sidebar .utune-widget input[type=button],
+.utune-sidebar .utune-widget input[type=submit],
+.utune-sidebar .utune-widget button{
+	background: #007CB9;
+	border: 1px solid #007CB9;
+	color: #eee;
+}
+
+.utune-footer .utune-widget input,
+.utune-sidebar .utune-widget input{
 	background: transparent;
 	border: 1px solid #333;
 }
 
-.utune-widget input[type=button],
-.utune-widget input[type=submit],
-.utune-widget button{
-	background: #007CB9;
-	border: 1px solid #007CB9;
+.utune-sidebar .utune-widget{
+	margin-bottom: 30px;
 }
+
+.utune-sidebar h2.utune-widget-tittle{
+	margin-top: 0;
+}
+
+.utune-sidebar .utune-widget ul{
+	list-style: none;
+	padding: 0;
+}
+
+.utune-sidebar .utune-widget ul.sub-menu{
+	padding: 5px 0 0 15px;
+}
+
+.utune-sidebar .utune-widget ul.sub-menu ul.sub-menu li.menu-item-has-children{
+	padding: 0 0 0 15px;
+}
+
+.utune-sidebar .utune-widget ul li{
+	padding: 0 0 5px 0;
+}
+
+.utune-footer .utune-widget ul li:before,
+.utune-sidebar .utune-widget ul li:before{
+	padding: 0 0 5px 0;
+	content: "\f105";
+	font: normal normal normal 14px/1 'FontAwesome';
+	color: #333;
+	padding-right: 10px;
+}
+
+.utune-footer .utune-widget ul li:before{
+	color: #aaa;
+}
+
+.utune-sidebar .utune-widget label,
+.utune-widget label{
+	display: block;
+}
+
+.utune-sidebar .utune-widget img{
+	width: 100%;
+	height: auto;
+}
+
+.utune-sidebar .utune-widget select{
+	width: 100%;
+	background: #EEE;
+	border: 1px solid #007CB9;
+	outline: none;
+}
+
+.utune-sidebar .utune-widget table{
+	width: 100%;
+}
+
+.utune-sidebar .utune-widget table caption{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.utune-sidebar .utune-widget table th{
+	font-weight: bold;
+	text-align: center;
+}
+
+.utune-sidebar .utune-widget table td{
+	text-align: center;
+	padding: 5px 0;
+}
+
+.utune-sidebar .utune-widget table td#today{
+	background: #007cb9;
+	color: #eee;
+}
+
+.utune-sidebar .post-date{
+	display: block;
+	padding-left: 18px;
+	font-size: 10px;
+	color: #999;
+}
+
+.utune-sidebar .post-date:before{
+	padding: 0 0 5px 0;
+	content: "\f073";
+	font: normal normal normal 12px/1 'FontAwesome';
+	color: #999;
+	padding-right: 10px;
+}
+
 /*;WIDGETS*/
 
 /*BLOG*/
@@ -405,7 +555,7 @@ h2.utune-widget-tittle{
 	font-size: 22px;
 	font-weight: bold;
 	margin-top: 0;
-	color: #333;
+	color: #333!important;
 	text-decoration: none;
 }
 
@@ -446,6 +596,34 @@ h2.utune-widget-tittle{
 	width: 100%;
 	height: auto;
 }
+
+.utune-readmore{
+	background: #333;
+	padding: 3px 6px;
+	color: #eee!important;
+	-webkit-transition: all .4s;
+	-o-transition: all .4s;
+	transition: all .4s;
+}
+
+.utune-readmore:hover{
+	background: #007cb9;
+	padding: 3px 6px;
+	color: #eee;
+	-webkit-transition: all .4s;
+	-o-transition: all .4s;
+	transition: all .4s;
+}
+
+.pagination>li>a, .pagination>li>span{
+	padding: 4px 7px;
+	border-radius: 0!important;
+}
+
+.pagination>li>span.current{
+	color: #eee;
+}
+
 /*;BLOG*/
 
 @media screen and (max-width: 768px){
@@ -461,12 +639,6 @@ h2.utune-widget-tittle{
 	.utune-logo{
 		text-align: center;
 		padding-bottom: 0;
-	}
-
-	.utune-head ul.parent-menu>li>a.utune-home{
-		background: url('../images/home_icon.png') no-repeat 15px 9px;
-		text-indent: 0;
-		padding-left: 45px;
 	}
 
 	.utune-head ul.parent-menu>li>ul.sub-menu,
@@ -492,7 +664,7 @@ h2.utune-widget-tittle{
 
 	.utune-head ul.parent-menu>li>ul.sub-menu li a{
 		display: block;
-		color: #eee;
+		color: #aaa;
 		width: 100%;
 		padding: 10px 15px 10px 30px;
 	}
@@ -501,7 +673,7 @@ h2.utune-widget-tittle{
 	.utune-head ul.parent-menu>li ul.sub-menu>li:hover>a,
 	.utune-head ul.parent-menu>li ul.sub-menu>li ul.sub-menu>li:hover>a{
 		display: block;
-		color: #eee;
+		color: #aaa;
 		width: 100%;
 		background: #007cb9;
 	}
@@ -519,7 +691,8 @@ h2.utune-widget-tittle{
 		width: auto;
 	}*/
 
-	.utune-sidebar{
+	.utune-sidebar,
+	.utune-search{
 		display: none;
 	}
 
@@ -535,7 +708,8 @@ h2.utune-widget-tittle{
 
 	.utune-search,
 	.utune-footer-link,
-	.utune-blog-date{
+	.utune-blog-date,
+	.utune-footer-widgets{
 		display: none;
 	}
 

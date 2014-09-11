@@ -23,13 +23,22 @@ if(have_posts()){
 					posted by <?php //the_author(); ?> in <?php //the_category(', '); ?>
 				</div> -->
 				<?php the_excerpt(); ?>
+				<p>
+					<a href="<?php echo get_the_permalink(); ?>" class="utune-readmore">read more ...</a>
+				</p>
 				<div class="utune-tags">
 					<?php the_tags('<i class="fa fa-tags"></i> ', ', '); ?>
 					<span class="utune-pade"></span><i class="fa fa-comments"></i> <?php echo comments_number('0 comments'); ?>
 					<span class="utune-pade"></span><i class="fa fa-folder-open"></i> <?php the_category(', '); ?>
 				</div>
+				<div class="utune-strip"></div>
 			</div>
 		</div>
 		<?php
 	}
 }
+?>
+<div class="row">
+	<div class="col-md-1 col-xs-1"></div>
+	<div class="col-md-11 col-xs-11"><?php wpex_pagination(); ?></div>
+</div>

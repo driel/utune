@@ -46,6 +46,7 @@
 	padding: 10px;
 	border: 1px solid #000;
 	background: #333;
+	font-size: 12px;
 }
 
 .tab-footer{
@@ -62,12 +63,12 @@
 }
 
 .block{
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .block .block-title{
-	font-size: 16px;
-	padding-bottom: 10px;
+	font-size: 12px;
+	padding-bottom: 5px;
 }
 
 /*

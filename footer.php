@@ -1,22 +1,22 @@
 	<div class="utune-footer">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
+			<div class="row utune-footer-widgets">
+				<div class="col-md-3 col-xs-3">
 					<?php if(is_dynamic_sidebar('Footer 1')): ?>
 						<?php dynamic_sidebar('Footer 1'); ?>
 					<?php endif; ?>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-3">
 					<?php if(is_dynamic_sidebar('Footer 2')): ?>
 						<?php dynamic_sidebar('Footer 2'); ?>
 					<?php endif; ?>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-3">
 					<?php if(is_dynamic_sidebar('Footer 3')): ?>
 						<?php dynamic_sidebar('Footer 3'); ?>
 					<?php endif; ?>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-3">
 					<?php if(is_dynamic_sidebar('Footer 4')): ?>
 						<?php dynamic_sidebar('Footer 4'); ?>
 					<?php endif; ?>
@@ -45,7 +45,8 @@
 		</div>
 	</div>
 	<div class="utune-backto-top">
-		<img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/arrow-up.png" alt="">
+		<i class="fa fa-angle-up"></i>
+		<!-- <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/arrow-up.png" alt=""> -->
 	</div>
 	<?php wp_footer(); ?>
 </body>

@@ -13,4 +13,10 @@ jQuery(function($){
 			'scrollTop': '0'
 		});
 	});
+
+	$('#menu-footer li:last-child').css({
+		'border-right': '0'
+	});
+
+	$('.page-numbers').addClass('pagination');
 });

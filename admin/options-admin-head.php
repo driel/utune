@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/select2.css">
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/admin.css">
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/checkswitch.css">
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/admin/css/spectrum.css">
 <script src="<?php echo get_bloginfo('template_url'); ?>/admin/js/checkswitch.js"></script>
 <script src="<?php echo get_bloginfo('template_url'); ?>/admin/js/select2.min.js"></script>
+<script src="<?php echo get_bloginfo('template_url'); ?>/admin/js/spectrum.js"></script>
 <script>
 	jQuery(function($){
 		var media_uploader;
@@ -47,5 +49,16 @@
 		});
 
 		checkSwitch();
+
+		$('#utune-color-picker').spectrum({
+			showPalette: true,
+			palette: [
+				['#f86834', '#1fa67a', '#007cb9'],
+				['#db0000', '#02a100']
+			],
+			change: function(color){
+				$('#utune-color').val(color.toHexString());
+			}
+		});
 	});
 </script>

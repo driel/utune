@@ -26,7 +26,7 @@ function google_fonts($name, $selected = ''){
 
 	$html = '<select name="'.$name.'" class="select">';
 	foreach($googlefonts as $k=>$v){
-		if($selected == $v){
+		if($selected == $k){
 			$html .= '<option value="'.$k.'" selected>'.$k.'</option>';
 		}else{
 			$html .= '<option value="'.$k.'">'.$k.'</option>';
