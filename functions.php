@@ -97,6 +97,22 @@ if(!function_exists('utune_head')){
 					border: 1px solid <?php echo utune_get_option('color'); ?>!important;
 					color: #eee;
 				}
+
+				@media screen and (max-width: 768px){
+					.utune-footer, .utune-head ul.parent-menu>li ul.sub-menu{
+						border: 0!important;
+					}
+
+					.utune-footer, .utune-head ul.parent-menu>li ul.sub-menu a{
+						color: #eee!important;
+					}
+
+					.utune-head ul.parent-menu>li>ul.sub-menu>li>a:hover, 
+					.utune-head ul.parent-menu>li ul.sub-menu>li:hover>a, 
+					.utune-head ul.parent-menu>li ul.sub-menu>li ul.sub-menu>li:hover>a{
+						background: <?php echo utune_get_option('color'); ?>;
+					}
+				}
 			</style>
 			<?php
 		}
@@ -145,7 +161,11 @@ add_filter('wp_nav_menu_items', 'utune_add_custom_link', 10, 2);
 
 function utune_excerpt_more( $more ){
 	global $post;
-	return ' <a href="" class="utune-more"> ...</a>';
+	return ' ...';
 }
 add_filter('excerpt_more', 'utune_excerpt_more');
 
+// remove <\/?p> and <br />
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+add_filter( 'the_content', 'shortcode_unautop',100 );

@@ -20,7 +20,7 @@
 		<div class="tab-pane" id="advanced"><?php require_once('options-advanced.php'); ?></div>
 	</div>
 	<div class="tab-footer">
-		<input type="submit" class="utune-button" name="utune_save" value="Save Setttings">
+		<input type="submit" class="utune-button" name="utune_save" value="Save Settings">
 	</div>
 	</form>
 </div>

@@ -6,7 +6,7 @@
 				<?php get_template_part('content', 'loop'); ?>
 			</div>
 			<div class="col-md-3 col-xs-3 utune-sidebar">
-				<?php if(is_dynamic_sidebar('Sidebar')): ?>
+				<?php if(is_active_sidebar('Sidebar')): ?>
 					<?php dynamic_sidebar('Sidebar'); ?>
 				<?php endif; ?>
 			</div>

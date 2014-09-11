@@ -2,22 +2,22 @@
 		<div class="container">
 			<div class="row utune-footer-widgets">
 				<div class="col-md-3 col-xs-3">
-					<?php if(is_dynamic_sidebar('Footer 1')): ?>
+					<?php if(is_active_sidebar('Footer 1')): ?>
 						<?php dynamic_sidebar('Footer 1'); ?>
 					<?php endif; ?>
 				</div>
 				<div class="col-md-3 col-xs-3">
-					<?php if(is_dynamic_sidebar('Footer 2')): ?>
+					<?php if(is_active_sidebar('Footer 2')): ?>
 						<?php dynamic_sidebar('Footer 2'); ?>
 					<?php endif; ?>
 				</div>
 				<div class="col-md-3 col-xs-3">
-					<?php if(is_dynamic_sidebar('Footer 3')): ?>
+					<?php if(is_active_sidebar('Footer 3')): ?>
 						<?php dynamic_sidebar('Footer 3'); ?>
 					<?php endif; ?>
 				</div>
 				<div class="col-md-3 col-xs-3">
-					<?php if(is_dynamic_sidebar('Footer 4')): ?>
+					<?php if(is_active_sidebar('Footer 4')): ?>
 						<?php dynamic_sidebar('Footer 4'); ?>
 					<?php endif; ?>
 				</div>

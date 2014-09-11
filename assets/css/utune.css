@@ -626,6 +626,21 @@ h2.utune-widget-tittle{
 
 /*;BLOG*/
 
+/*BOOTSTRAP OVERRIDE*/
+.btn{
+	border-radius: 0;
+	outline: none!important;
+}
+
+a.btn{
+	color: #eee!important;
+}
+
+a.btn.btn-default{
+	color: #333!important;
+}
+/*;BOOTSTRAP OVERRIDE*/
+
 @media screen and (max-width: 768px){
 	.utune-inner-head {
 		min-height: 70px;
