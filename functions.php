@@ -14,10 +14,10 @@ register_nav_menu('secondary', 'Secondary Menu');
 if(!function_exists('utune_head')){
 	function utune_head(){
 		echo '<!--[if lt IE 9]>
-	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	    <![endif]-->';
-    
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->';
+
 		$font = utune_get_option('font');
 
 		if(strlen($font) > 0){
@@ -34,85 +34,85 @@ if(!function_exists('utune_head')){
 			$rgb = utune_hex2rgb(utune_get_option('color'));
 			?>
 			<style type="text/css">
-				a,
-				.utune-search-button{
-					color: <?php echo utune_get_option('color'); ?>!important;
+			a,
+			.utune-search-button{
+				color: <?php echo utune_get_option('color'); ?>!important;
+			}
+
+			.utune-head ul.parent-menu>li>a{
+				color: #eee!important;
+			}
+
+			.utune-head ul.parent-menu>li:hover>a, 
+			.utune-head ul.parent-menu>li.current-menu-item>a,
+			.utune-backto-top:hover{
+				color: #eee;
+				background-color: <?php echo utune_get_option('color'); ?>;
+				-webkit-transition: background .2s;
+				-moz-transition: background .2s;
+				-ms-transition: background .2s;
+				-o-transition: background .2s;
+				transition: background .2s;
+			}
+
+			.utune-head ul.parent-menu>li:hover>a.utune-home{
+				background-color: transparent;
+			}
+
+			.utune-head{
+				border-bottom: 5px solid <?php echo utune_get_option('color'); ?>!important;
+			}
+
+			.utune-breadcrumb .utune-breadcrumb-inner{
+				background-color: rgba(<?php echo $rgb; ?>, 0.63);
+			}
+
+			.utune-blog-date,
+			.pagination span.current{
+				background-color: <?php echo utune_get_option('color'); ?>!important;
+			}
+
+			.utune-footer,
+			.utune-head ul.parent-menu>li ul.sub-menu{
+				border-top: 5px solid <?php echo utune_get_option('color'); ?>;
+			}
+
+			.utune-widget-tittle{
+				color: <?php echo utune_get_option('color'); ?>!important;
+				border-bottom: 2px solid <?php echo utune_get_option('color'); ?>!important;
+			}
+
+			.utune-sidebar .utune-widget table td#today,
+			.utune-readmore:hover{
+				background: <?php echo utune_get_option('color'); ?>!important;
+			}
+
+			.utune-footer .utune-widget input[type=button], 
+			.utune-footer .utune-widget input[type=submit], 
+			.utune-footer .utune-widget button, .utune-sidebar 
+			.utune-widget input[type=button], 
+			.utune-sidebar .utune-widget input[type=submit], 
+			.utune-sidebar .utune-widget button{
+				background: <?php echo utune_get_option('color'); ?>!important;
+				border: 1px solid <?php echo utune_get_option('color'); ?>!important;
+				color: #eee;
+			}
+
+			@media screen and (max-width: 768px){
+				.utune-head ul.parent-menu>li ul.sub-menu{
+					border: 0!important;
 				}
 
-				.utune-head ul.parent-menu>li>a{
+				.utune-footer, .utune-head ul.parent-menu>li ul.sub-menu a{
 					color: #eee!important;
 				}
 
-				.utune-head ul.parent-menu>li:hover>a, 
-				.utune-head ul.parent-menu>li.current-menu-item>a,
-				.utune-backto-top:hover{
-					color: #eee;
-					background-color: <?php echo utune_get_option('color'); ?>;
-					-webkit-transition: background .2s;
-					-moz-transition: background .2s;
-					-ms-transition: background .2s;
-					-o-transition: background .2s;
-					transition: background .2s;
+				.utune-head ul.parent-menu>li>ul.sub-menu>li>a:hover, 
+				.utune-head ul.parent-menu>li ul.sub-menu>li:hover>a, 
+				.utune-head ul.parent-menu>li ul.sub-menu>li ul.sub-menu>li:hover>a{
+					background: <?php echo utune_get_option('color'); ?>;
 				}
-
-				.utune-head ul.parent-menu>li:hover>a.utune-home{
-					background-color: transparent;
-				}
-
-				.utune-head{
-					border-bottom: 5px solid <?php echo utune_get_option('color'); ?>!important;
-				}
-
-				.utune-breadcrumb .utune-breadcrumb-inner{
-					background-color: rgba(<?php echo $rgb; ?>, 0.63);
-				}
-
-				.utune-blog-date,
-				.pagination span.current{
-					background-color: <?php echo utune_get_option('color'); ?>!important;
-				}
-
-				.utune-footer,
-				.utune-head ul.parent-menu>li ul.sub-menu{
-					border-top: 5px solid <?php echo utune_get_option('color'); ?>;
-				}
-
-				.utune-widget-tittle{
-					color: <?php echo utune_get_option('color'); ?>!important;
-					border-bottom: 2px solid <?php echo utune_get_option('color'); ?>!important;
-				}
-
-				.utune-sidebar .utune-widget table td#today,
-				.utune-readmore:hover{
-					background: <?php echo utune_get_option('color'); ?>!important;
-				}
-
-				.utune-footer .utune-widget input[type=button], 
-				.utune-footer .utune-widget input[type=submit], 
-				.utune-footer .utune-widget button, .utune-sidebar 
-				.utune-widget input[type=button], 
-				.utune-sidebar .utune-widget input[type=submit], 
-				.utune-sidebar .utune-widget button{
-					background: <?php echo utune_get_option('color'); ?>!important;
-					border: 1px solid <?php echo utune_get_option('color'); ?>!important;
-					color: #eee;
-				}
-
-				@media screen and (max-width: 768px){
-					.utune-head ul.parent-menu>li ul.sub-menu{
-						border: 0!important;
-					}
-
-					.utune-footer, .utune-head ul.parent-menu>li ul.sub-menu a{
-						color: #eee!important;
-					}
-
-					.utune-head ul.parent-menu>li>ul.sub-menu>li>a:hover, 
-					.utune-head ul.parent-menu>li ul.sub-menu>li:hover>a, 
-					.utune-head ul.parent-menu>li ul.sub-menu>li ul.sub-menu>li:hover>a{
-						background: <?php echo utune_get_option('color'); ?>;
-					}
-				}
+			}
 			</style>
 			<?php
 		}
@@ -140,7 +140,7 @@ if(!function_exists('utune_theme_activation')){
 				'twitter'=>'#',
 				'gplus'=>'#',
 				'youtube'=>'#'
-			),
+				),
 			'show_search'=>'on',
 			'show_social_icons'=>'on',
 			'tagline'=>'Call us +62 821 1997 6569',
@@ -148,7 +148,7 @@ if(!function_exists('utune_theme_activation')){
 			'analytic'=>'',
 			'advance_js'=>'',
 			'advance_css'=>''
-		);
+			);
 		update_option('utune_settings', serialize($default_options));
 	}
 }
@@ -191,6 +191,58 @@ function utune_excerpt_more( $more ){
 	return ' ...';
 }
 add_filter('excerpt_more', 'utune_excerpt_more');
+
+
+function utune_comment_template($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment;
+	extract($args, EXTR_SKIP);
+
+	if ( 'div' == $args['style'] ) {
+		$tag = 'div';
+		$add_below = 'comment';
+	} else {
+		$tag = 'li';
+		$add_below = 'div-comment';
+	}
+	?>
+	<<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+	<?php if ( 'div' != $args['style'] ) : ?>
+	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+	<?php endif; ?>
+	<div class="comment-author vcard">
+		<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+		<?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+		<div class="comment-meta">
+			<i class="fa fa-clock-o"></i>
+			<?php
+			/* translators: 1: date, 2: time */
+			printf( __(' %1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
+			?>
+		</div>
+	</div>
+	<?php if ( $comment->comment_approved == '0' ) : ?>
+	<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+	<br />
+	<?php endif; ?>
+
+	<!-- <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+		<?php
+		/* translators: 1: date, 2: time */
+		//printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
+		?>
+	</div> -->
+	<div class="clearfix"></div>
+
+	<?php comment_text(); ?>
+
+	<div class="reply">
+		<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+	</div>
+	<?php if ( 'div' != $args['style'] ) : ?>
+	</div>
+	<?php endif; ?>
+	<?php
+}
 
 // remove <\/?p> and <br />
 remove_filter( 'the_content', 'wpautop' );

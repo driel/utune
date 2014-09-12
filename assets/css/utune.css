@@ -667,6 +667,26 @@ h2.utune-widget-tittle{
 	outline: none;
 }
 
+#utune-nested-comment,
+#utune-nested-comment ul.children{
+	list-style: none;
+}
+
+#utune-nested-comment{
+	padding: 0;
+}
+
+#utune-nested-comment .comment-body{
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #ccc;
+	padding-bottom: 5px;
+}
+
+#utune-nested-comment .comment-author img{
+	float: left;
+	margin-right: 10px;
+}
+
 /*;BLOG*/
 
 /*BOOTSTRAP OVERRIDE*/
