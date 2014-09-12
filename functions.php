@@ -99,7 +99,7 @@ if(!function_exists('utune_head')){
 				}
 
 				@media screen and (max-width: 768px){
-					.utune-footer, .utune-head ul.parent-menu>li ul.sub-menu{
+					.utune-head ul.parent-menu>li ul.sub-menu{
 						border: 0!important;
 					}
 
@@ -126,6 +126,33 @@ if(!function_exists('utune_setup')){
 	}
 }
 add_action('after_setup_theme', 'utune_setup');
+
+if(!function_exists('utune_theme_activation')){
+	function utune_theme_activation(){
+		$default_options = array(
+			'site_logo'=>get_bloginfo('template_url').'/utune-logo.png',
+			'favicon'=>'',
+			'blog_heading'=>'uTune Blog',
+			'blog_subheading'=>'everyone is uniqeu',
+			'color'=>'#007cb9',
+			'social_media'=>array(
+				'facebook'=>'#',
+				'twitter'=>'#',
+				'gplus'=>'#',
+				'youtube'=>'#'
+			),
+			'show_search'=>'on',
+			'show_social_icons'=>'on',
+			'tagline'=>'Call us +62 821 1997 6569',
+			'copyright'=>'&copy; copyright 2014',
+			'analytic'=>'',
+			'advance_js'=>'',
+			'advance_css'=>''
+		);
+		update_option('utune_settings', serialize($default_options));
+	}
+}
+add_action('after_switch_theme', 'utune_theme_activation');
 
 if(!function_exists('utune_register_script')){
 	function utune_register_script(){

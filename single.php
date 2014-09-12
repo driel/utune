@@ -3,7 +3,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-9 col-xs-9 utune-main-content">
-				<?php get_template_part('content', 'loop'); ?>
+				<?php 
+				get_template_part('content', 'loop'); 
+				get_template_part('comment', 'form');
+				?>
 			</div>
 			<div class="col-md-3 col-xs-3 utune-sidebar">
 				<?php if(is_active_sidebar('Sidebar')): ?>

@@ -66,7 +66,7 @@
 		<div class="utune-breadcrumb">
 			<div class="utune-breadcrumb-inner utune-static">
 				<div class="container">
-					<h3 class="utune-page-heading"><?php echo utune_get_option('blog_heading') ?></h3>
+					<h3 class="utune-page-heading"><?php echo utune_get_option('blog_heading'); ?></h3>
 					<div class="utune-trail">
 						<?php echo utune_get_option('blog_subheading') ?>
 					</div>

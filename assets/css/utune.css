@@ -597,16 +597,19 @@ h2.utune-widget-tittle{
 	height: auto;
 }
 
-.utune-readmore{
+.utune-readmore,
+.comment-respond #submit{
 	background: #333;
 	padding: 3px 6px;
 	color: #eee!important;
+	border: 0;
 	-webkit-transition: all .4s;
 	-o-transition: all .4s;
 	transition: all .4s;
 }
 
-.utune-readmore:hover{
+.utune-readmore:hover,
+.comment-respond #submit:hover{
 	background: #007cb9;
 	padding: 3px 6px;
 	color: #eee;
@@ -622,6 +625,46 @@ h2.utune-widget-tittle{
 
 .pagination>li>span.current{
 	color: #eee;
+}
+
+.comment-respond{
+	margin-top: 30px;
+}
+
+.comment-respond #reply-title{
+	font-size: 16px;
+}
+
+.comment-respond label{
+	display: block;
+}
+
+.comment-respond input[type=text]{
+	width: 240px;
+	padding: 5px;
+}
+
+.comment-respond textarea{
+	height: 150px;
+	padding: 5px;
+}
+
+.comment-respond .comment-notes,
+.comment-respond p.form-allowed-tags{
+	display: none;
+}
+
+.comment-respond #submit,
+.comment-respond #submit:hover{
+	padding: 5px 10px;
+}
+
+.comment-respond input[type=text],
+.comment-respond textarea,
+.comment-respond #submit,
+.comment-respond #submit,
+.comment-respond #submit:hover{
+	outline: none;
 }
 
 /*;BLOG*/

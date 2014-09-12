@@ -4,7 +4,6 @@ if(!function_exists('utune_get_option')){
 		$settings = get_option('utune_settings');
 		if(is_serialized($settings)){
 			$settings = unserialize($settings);
-			//print_r($settings);
 			if(array_key_exists($k, $settings)){
 				return $settings[$k];
 			}else{

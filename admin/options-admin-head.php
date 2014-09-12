@@ -54,7 +54,7 @@
 			showPalette: true,
 			palette: [
 				['#f86834', '#1fa67a', '#007cb9'],
-				['#db0000', '#02a100']
+				['#c9302c', '#02a100']
 			],
 			change: function(color){
 				$('#utune-color').val(color.toHexString());
