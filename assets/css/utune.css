@@ -34,6 +34,10 @@ a:hover{
 	background: url('../images/stripe.png'); 
 }
 
+.utune-row{
+	padding-bottom: 20px;
+}
+
 .icon-bar{
 	color: #FFF;
 	border: 1px solid #fff;
@@ -613,9 +617,14 @@ h2.utune-widget-tittle{
 	background: #007cb9;
 	padding: 3px 6px;
 	color: #eee;
+	border: 0!important;
 	-webkit-transition: all .4s;
 	-o-transition: all .4s;
 	transition: all .4s;
+}
+
+#utune-post-content{
+	margin-bottom: 40px;
 }
 
 .pagination>li>a, .pagination>li>span{
@@ -702,6 +711,58 @@ a.btn{
 a.btn.btn-default{
 	color: #333!important;
 }
+
+.nav-tabs{
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.nav-tabs>li>a{
+	border: 0;
+	border-bottom: 0;
+	border-top: 3px solid transparent;
+	border-radius: 0;
+	padding: 5px 45px;
+	margin: 0;
+	background: #e7e7e7;
+	color: #333!important;
+}
+
+.tab-content>.tab-pane{
+	padding: 10px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+	border: 0;
+	border-top: 3px solid #007cb9;
+	background: #e7e7e7;
+	padding: 5px 45px;
+	margin: 0;
+}
+
+.vtab.nav-tabs>li{
+	float: none;
+	width: 100%;
+}
+
+.vtab.nav-tabs>li>a{
+	border: 0;
+	border-bottom: 0;
+	border-left: 3px solid transparent;
+	border-radius: 0;
+	padding: 5px 10px;
+	margin: 0;
+	background: #e7e7e7;
+	color: #333!important;
+}
+
+.vtab.nav-tabs>li.active>a, .vtab.nav-tabs>li.active>a:hover, .vtab.nav-tabs>li.active>a:focus{
+	border: 0;
+	border-left: 3px solid #007cb9;
+	background: #e7e7e7;
+	padding: 5px 10px;
+	margin: 0;
+}
+
 /*;BOOTSTRAP OVERRIDE*/
 
 @media screen and (max-width: 768px){
@@ -793,5 +854,19 @@ a.btn.btn-default{
 
 	.utune-post-inner{
 		width: 100%;
+	}
+
+	.nav-tabs>li{
+		float: none;
+	}
+
+	.nav-tabs>li>a{
+		padding: 5px 10px;
+	}
+
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+		background: #333;
+		color: #eee!important;
+		padding: 5px 10px;
 	}
 }

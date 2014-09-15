@@ -8,7 +8,6 @@ function utune_button($atts, $content = '', $code){
 		'target'=>'_self'
 	), $atts);
 
-
 	$size = '';
 	switch($opt['size']){
 		case 'extra-small':
@@ -40,29 +39,36 @@ add_shortcode('button_to', 'utune_button');
 // bootstrap row.
 // must be used before column
 function utune_row($atts, $content){
-	return '<div class="row">'.do_shortcode($content).'</div>';
+	return '<div class="row utune-row">'.do_shortcode($content).'</div>';
 }
 add_shortcode('row', 'utune_row');
 
 // bootstrap column
 // must be wrapped inside column
 function utune_column($atts, $content = '', $code){
-	$opt = shortcode_atts(array(), $atts);
+	$opt = shortcode_atts(array(
+		'border_width'=>'0',
+		'border_color'=>'#333'
+	), $atts);
 	$col = array(
-		'col_one'=>'col-sm-1 col-md-1 col-lg-1',
-		'col_two'=>'col-sm-2 col-md-2 col-lg-2',
-		'col_three'=>'col-sm-3 col-md-3 col-lg-3',
-		'col_four'=>'col-sm-4 col-md-4 col-lg-4',
-		'col_five'=>'col-sm-5 col-md-5 col-lg-5',
-		'col_six'=>'col-sm-6 col-md-6 col-lg-6',
-		'col_seven'=>'col-sm-7 col-md-7 col-lg-7',
-		'col_eight'=>'col-sm-8 col-md-8 col-lg-8',
-		'col_nine'=>'col-sm-9 col-md-9 col-lg-9',
-		'col_ten'=>'col-sm-10 col-md-10 col-lg-10',
-		'col_eleven'=>'col-sm-11 col-md-11 col-lg-11',
-		'col_twelve'=>'col-sm-12 col-md-12 col-lg-12'
+		'col_one'=>'col-xs-1 col-md-1',
+		'col_two'=>'col-xs-2 col-md-2',
+		'col_three'=>'col-xs-3 col-md-3',
+		'col_four'=>'col-xs-4 col-md-4',
+		'col_five'=>'col-xs-5 col-md-5',
+		'col_six'=>'col-xs-6 col-md-6',
+		'col_seven'=>'col-xs-7 col-md-7',
+		'col_eight'=>'col-xs-8 col-md-8',
+		'col_nine'=>'col-xs-9 col-md-9',
+		'col_ten'=>'col-xs-10 col-md-10',
+		'col_eleven'=>'col-xs-11 col-md-11',
+		'col_twelve'=>'col-xs-12 col-md-12'
 	);
-	return '<div class="'.$col[$code].'">'.do_shortcode($content).'</div>';
+	$style = '';
+	if((int)$opt["border_width"] > 0){
+		$style = 'border: '.$opt["border_width"].'px solid '.$opt["border_color"] ;
+	} 
+	return '<div class="'.$col[$code].'" style="'.$style.'">'.do_shortcode($content).'</div>';
 }
 $col = array(
 	'col_one', 'col_two', 'col_three', 'col_four', 'col_five', 'col_six',
@@ -71,3 +77,40 @@ $col = array(
 foreach($col as $code){
 	add_shortcode($code, 'utune_column');
 }
+
+function utune_tab_group($atts, $content, $code){
+    $GLOBALS['tab_count'] = 0;
+    $opt = shortcode_atts(array(
+    	'active_tab'=>'0'
+	), $atts);
+
+    do_shortcode( $content );
+
+    if( is_array( $GLOBALS['tabs'] ) ){
+	    foreach( $GLOBALS['tabs'] as $k=>$tab ){
+	    	$target = strtolower(str_replace(' ', '-', $tab['title']));
+	        $tabs[] = '<li'.((int)$opt['active_tab'] == $k ? ' class="active"':'').'><a href="#tab-'.$target.'" role="tab" data-toggle="tab">'.$tab['title'].'</a></li>';
+	        $panes[] = '<div class="tab-pane'.((int)$opt['active_tab'] == $k ? ' active':'').' fade'.($k == 0 ? ' in':'').'" id="tab-'.$target.'">'.$tab['content'].'</div>';
+	    }
+
+	    $return = "\n".'<ul class="nav nav-tabs">'.implode( "\n", $tabs ).'</ul>'."\n".'<div class="tab-content">'.implode( "\n", $panes ).'</div>'."\n";
+	    if($code == 'vtabgroup'){
+	    	$return = "\n".'<div class="row"><div class="col-md-3 col-xs-3"><ul class="vtab nav nav-tabs">'.implode( "\n", $tabs ).'</ul></div>'."\n".'<div class="col-md-9 col-xs-9"><div class="tab-content">'.implode( "\n", $panes ).'</div></div></div>'."\n";
+	    }
+	}
+    return $return;
+}
+add_shortcode( 'tabgroup', 'utune_tab_group' );
+add_shortcode( 'vtabgroup', 'utune_tab_group' );
+
+function utune_tab( $atts, $content ){
+    extract(shortcode_atts(array(
+            'title' => 'Tab %d'
+    ), $atts));
+
+    $x = $GLOBALS['tab_count'];
+    $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' =>  $content );
+
+    $GLOBALS['tab_count']++;
+}
+add_shortcode( 'tab', 'utune_tab' );

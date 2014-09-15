@@ -83,7 +83,8 @@ if(!function_exists('utune_head')){
 			}
 
 			.utune-sidebar .utune-widget table td#today,
-			.utune-readmore:hover{
+			.utune-readmore:hover,
+			.comment-respond #submit:hover{
 				background: <?php echo utune_get_option('color'); ?>!important;
 			}
 
@@ -96,6 +97,14 @@ if(!function_exists('utune_head')){
 				background: <?php echo utune_get_option('color'); ?>!important;
 				border: 1px solid <?php echo utune_get_option('color'); ?>!important;
 				color: #eee;
+			}
+
+			.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+				border-top: 3px solid <?php echo utune_get_option('color'); ?>;
+			}
+
+			.vtab.nav-tabs>li.active>a, .vtab.nav-tabs>li.active>a:hover, .vtab.nav-tabs>li.active>a:focus{
+				border-left: 3px solid <?php echo utune_get_option('color'); ?>;
 			}
 
 			@media screen and (max-width: 768px){
@@ -170,10 +179,18 @@ if(!function_exists('utune_register_script')){
 
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('utune-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'));
+		wp_enqueue_script('hoverizr', get_template_directory_uri().'/assets/js/jquery.hoverizr.js', array('jquery'));
 		wp_enqueue_script('utune-script', get_template_directory_uri().'/assets/js/script.js', array('jquery'));
 	}
 }
 add_action('wp_enqueue_scripts', 'utune_register_script');
+
+function utune_comment_reply(){
+	if ((!is_admin()) && is_singular() && comments_open() && get_option('thread_comments')){
+		wp_enqueue_script('comment-reply');
+	}
+}
+add_action('wp_print_scripts', 'utune_comment_reply');
 
 if(!function_exists('utune_add_custom_link')){
 	function utune_add_custom_link($items, $args){
@@ -224,13 +241,6 @@ function utune_comment_template($comment, $args, $depth) {
 	<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
 	<br />
 	<?php endif; ?>
-
-	<!-- <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-		<?php
-		/* translators: 1: date, 2: time */
-		//printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
-		?>
-	</div> -->
 	<div class="clearfix"></div>
 
 	<?php comment_text(); ?>

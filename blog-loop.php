@@ -28,7 +28,7 @@ if(have_posts()){
 				</p>
 				<div class="utune-tags">
 					<?php the_tags('<i class="fa fa-tags"></i> ', ', '); ?>
-					<span class="utune-pade"></span><i class="fa fa-comments"></i> <?php echo comments_number('0 comments'); ?>
+					<span class="utune-pade"></span><i class="fa fa-comments"></i> <a href="<?php echo get_the_permalink();?>#respond"><?php echo comments_number('0 comments'); ?></a>
 					<span class="utune-pade"></span><i class="fa fa-folder-open"></i> <?php the_category(', '); ?>
 				</div>
 				<div class="utune-strip"></div>
