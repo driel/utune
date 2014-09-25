@@ -21,4 +21,6 @@ jQuery(function($){
 	$('.page-numbers').addClass('pagination');
 
 	$('.wp-post-image').hoverizr();
+
+	$('[data-toggle="tooltip"]').tooltip();
 });

@@ -5,7 +5,9 @@ function utune_button($atts, $content = '', $code){
 		'size'=>'',
 		'type'=>'default',
 		'url'=>'#',
-		'target'=>'_self'
+		'target'=>'_self',
+		'tooltip'=>'',
+		'tooltip_placement'=>'top'
 	), $atts);
 
 	$size = '';
@@ -27,10 +29,19 @@ function utune_button($atts, $content = '', $code){
 		break;
 	}
 
-	$output = '<button type="button" class="btn btn-'.$opt['type'].$size.'">'.do_shortcode($content).'</button>';
+	$output = '<button type="button" class="btn btn-'.$opt['type'].$size.'"';
 	if($code == 'button_to'){
-		$output = '<a href="'.$opt['url'].'" class="btn btn-'.$opt['type'].$size.'" target="'.$opt['target'].'">'.do_shortcode($content).'</a>';
+		$output = '<a href="'.$opt['url'].'" class="btn btn-'.$opt['type'].$size.'" target="'.$opt['target'].'"';
 	}
+
+	// tooltip
+	if(strlen($opt['tooltip']) > 0){
+		$output .= ' data-toggle="tooltip" title="'.$opt['tooltip'].'" data-placement="'.$opt['tooltip_placement'].'"';
+	}
+
+	$output .= '>';
+	$output .= ($code == 'button_to' ? do_shortcode($content).'</a>':do_shortcode($content).'</button>');
+
 	return $output;
 }
 add_shortcode('button', 'utune_button');
@@ -78,6 +89,9 @@ foreach($col as $code){
 	add_shortcode($code, 'utune_column');
 }
 
+/*
+** TABS
+*/
 function utune_tab_group($atts, $content, $code){
     $GLOBALS['tab_count'] = 0;
     $opt = shortcode_atts(array(
@@ -114,3 +128,45 @@ function utune_tab( $atts, $content ){
     $GLOBALS['tab_count']++;
 }
 add_shortcode( 'tab', 'utune_tab' );
+
+/*
+** ACCORDION
+*/
+function utune_accordian_group($atts, $content){
+	$GLOBALS['acc_count'] = 0;
+	$opt = shortcode_atts(array(
+		'active_accordion'=>'0'
+	), $atts);
+
+	do_shortcode($content);
+
+	$random = rand(0, 1000000);
+
+	if(is_array($GLOBALS['accs'])){
+		foreach($GLOBALS['accs'] as $k=>$tab){
+			$target = strtolower(str_replace(' ', '-', $tab['title']));
+			$accs[] = '<div class="panel panel-default">
+				<div class="panel-heading"><h4 class="panel-title"><a href="#'.$target.'" data-toggle="collapse" data-parent="#accordion-'.$random.'">'.$tab['title'].'</a></h4></div>
+				<div id="'.$target.'" class="panel-collapse collapse'.($opt['active_accordion'] == $k ? ' in':'').'"><div class="panel-body">'.$tab['content'].'</div></div>
+			</div>';
+		}
+
+		$return = '<div class="panel-group" id="accordion-'.$random.'">';
+		$return .= implode("\n", $accs);
+		$return .= '</div>';
+	}
+	return $return;
+}
+add_shortcode('accordion_group', 'utune_accordian_group');
+
+function utune_accordion($atts, $content){
+	extract(shortcode_atts(array(
+            'title' => 'Tab %d'
+    ), $atts));
+
+    $x = $GLOBALS['acc_count'];
+    $GLOBALS['accs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['acc_count'] ), 'content' =>  $content );
+
+    $GLOBALS['acc_count']++;
+}
+add_shortcode('accordion', 'utune_accordion');
