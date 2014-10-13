@@ -170,3 +170,35 @@ function utune_accordion($atts, $content){
     $GLOBALS['acc_count']++;
 }
 add_shortcode('accordion', 'utune_accordion');
+
+function utune_fa($atts, $content = '', $code = 'icon'){
+	$options = shortcode_atts(array(
+		'name'=>'',
+		'bg_color'=>'transparent',
+		'color'=>'',
+		'size'=>'small'
+	), $atts);
+	$type = $code == 'icon' ? 'fa-no-circle':'fa-with-circle';
+	$fa = '<i class="fa fa-'.$options['name'].' fa-'.$options['size'].'-icon '.$type.'" style="';
+
+	if($options['color'] != ''){
+		$fa .= 'color: '.$options['color'].'; border-color: '.$options['color'].';';
+	}
+
+	if($options['bg_color'] != 'transparent'){
+		$fa .= 'background: '.$options['bg_color'].';';
+	}
+
+	$fa .= '"></i>';
+	return $fa;
+}
+add_shortcode('icon', 'utune_fa');
+add_shortcode('icon_circle', 'utune_fa');
+
+function utune_image($atts, $content){
+	$options = shortcode_atts(array(
+		'url'=>'#'
+	), $atts);
+	return '<img src="'.$options['url'].'" class="img-responsive" alt="" />'; 
+}
+add_shortcode('img', 'utune_image');

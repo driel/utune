@@ -723,6 +723,37 @@ h2.utune-widget-tittle{
 
 /*;BLOG*/
 
+/*FONT AWESOME*/
+.fa-with-circle{
+	border: 1px solid #333;
+	border-radius: 50%;
+}
+
+.fa-small-icon{
+	font-size: 10px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.fa-medium-icon{
+	font-size: 18px;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+}
+
+.fa-large-icon{
+	font-size: 48px;
+	width: 64px;
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+}
+/*;FONT AWESOME */
+
 /*BOOTSTRAP OVERRIDE*/
 .btn{
 	border-radius: 0;

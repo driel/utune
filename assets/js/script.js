@@ -1,6 +1,5 @@
 jQuery(function($){
 	$(window).on("scroll", function(e){
-		console.log($(this).scrollTop());
 		if($(this).scrollTop() > 90){
 			$('.utune-backto-top').fadeIn();
 		}else{
